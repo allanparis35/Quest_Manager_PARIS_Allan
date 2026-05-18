@@ -1,4 +1,4 @@
-package src.models;
+package model;
 
       public enum QuestStatus {
         TODO,
