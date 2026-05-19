@@ -33,13 +33,10 @@ public class Player {
     }
 
     public void addXP(int xp) {
-        this.currentXP += xp;
-        this.totalXP += xp;
-        if (this.currentXP >= XP_PER_LEVEL) {
-            this.levelUp();
-
-        }   
-            }
+    this.currentXP += xp;
+    this.totalXP += xp;
+    levelUp();
+    }
     private void levelUp() {
         while (this.currentXP >= XP_PER_LEVEL && this.level < MAX_LEVEL) {
             this.level++;
@@ -48,20 +45,21 @@ public class Player {
         }
     }
 
+    private static final Reward[] REWARDS = {
+    new Reward(1, "Mode Végétatif"),
+    new Reward(6, "tkt demain c'est fait"),
+    new Reward(11, "pause café"),
+    new Reward(16, "Philosophe de la Sieste"),
+    new Reward(21, "Seigneur du Bordel Organisé"),
+    new Reward(26, "digne de la madré")
+};
 
     private void updateTitle() {
-        if (this.level >= 30) {
-            this.title = "digne de la madré";
-        } else if (this.level >= 25) {
-            this.title = "Seigneur du Bordel Organisé";
-        } else if (this.level >= 20) {
-            this.title = "Philosophe de la Sieste";
-        } else if (this.level >= 15) {
-            this.title = "pause café";
-        } else if (this.level >= 10) {
-            this.title = "tkt demain c'est fait";
-        } else {
-            this.title = "Mode Végétatif";
+    for (int i = REWARDS.length - 1; i >= 0; i--) {
+        if (this.level >= REWARDS[i].getLevel()) {
+            this.title = REWARDS[i].getTitle();
+            break;
+        }
         }
     }
 }
