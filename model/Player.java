@@ -31,6 +31,17 @@ public class Player {
     public String getTitle() {
         return this.title;
     }
+    public void setLevel(int level) {
+    this.level = level;
+}
+
+public void setCurrentXP(int currentXP) {
+    this.currentXP = currentXP;
+}
+
+public void setTitle(String title) {
+    this.title = title;
+}
 
     public void addXP(int xp) {
     this.currentXP += xp;

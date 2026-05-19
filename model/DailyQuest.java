@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class DailyQuest extends Quest {
     private LocalDate lastCompletedDate;
 
-    public DailyQuest(String title, String description, int xpReward, QuestStatus status) {
-        super(title, description, xpReward, QuestStatus.TODO);
+    public DailyQuest(int id, String title, String description, int xpReward, QuestStatus status) {
+        super(id, title, description, xpReward, status);
         this.lastCompletedDate = null;
     }
     //Resets the quest if it was completed on a previous day
